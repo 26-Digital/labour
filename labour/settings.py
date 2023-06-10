@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'labour',
+    'permits',
     'corsheaders',
     'rest_framework',
     'django.contrib.admin',
