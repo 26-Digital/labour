@@ -10,3 +10,8 @@ class LongTermPermitListCreateView(generics.ListCreateAPIView):
 class LongTermPermitDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = LongTermPermit.objects.all()
     serializer_class = LongTermPermitSerializer
+
+class LongTermWorkPermitApprovalView(generics.RetrieveUpdateAPIView):
+    queryset = LongTermPermit.objects.all()
+    serializer_class = LongTermPermitSerializer
+    lookup_field = 'permit_number'
