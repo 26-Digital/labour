@@ -56,3 +56,13 @@ class YearsOfResidenceView(generics.RetrieveAPIView):
             years_of_permit = (date_to - date_from).days/365
             total_years += years_of_permit
         return total_years
+
+"""
+Get Pending Permits
+"""    
+class PendingPermitsView(generics.ListAPIView):
+    serializer_class = LongTermPermitSerializer
+
+    def get_queryset(self):
+        queryset = LongTermPermit.objects.filter(approval_status='P')
+        return queryset
