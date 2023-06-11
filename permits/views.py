@@ -27,26 +27,29 @@ class LongTermWorkPermitApprovalView(generics.RetrieveUpdateAPIView):
 
 class YearsOfResidenceView(generics.RetrieveAPIView):
     serializer_class = LongTermPermitSerializer
-
+    lookup_field = 'passport_number'
+    
     def get_queryset(self):
         passport_number = self.kwargs['passport_number']
         queryset = LongTermPermit.objects.filter(approval_status='A', passport_number=passport_number)
+        print(queryset)
         return queryset
     
     def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        years_of_residence = self.calculate_years_of_residence(instance)
+        queryset = self.get_queryset()
+        years_of_residence = self.calculate_years_of_residence(queryset)
         response_data = {
-            'passport_number': instance.passport_number,
+            'passport_number': queryset.first().passport_number if queryset.exists() else None,
             'years_of_residence': years_of_residence
         }
         return Response(response_data)
     
-    def calculate_years_of_residence(self, instance):
+    def calculate_years_of_residence(self, queryset):
         total_years = 0
-        for permit in instance:
-            date_from = datetime.strptime(permit.date_from, "%Y-%m-%d").date()
-            date_to = datetime.strptime(permit.date_to, "%Y-%m-%d").date()
+        
+        for permit in queryset:
+            date_from = datetime.strptime(permit.date_from.strftime("%Y-%m-%d"), "%Y-%m-%d").date()
+            date_to = datetime.strptime(permit.date_to.strftime("%Y-%m-%d"), "%Y-%m-%d").date()
             years_of_permit = (date_to - date_from).days/365
             total_years += years_of_permit
         return total_years
