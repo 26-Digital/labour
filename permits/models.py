@@ -5,7 +5,7 @@ from django.db import models
 
 """
 class LongTermPermit(models.Model):
-    photo = models.ImageField(upload_to='permit_photos')
+    #photo = models.ImageField(upload_to='permit_photos')
     applicant_name = models.CharField(max_length=100)
     employer_name = models.CharField(max_length=100)
     date_from = models.DateField()
@@ -19,6 +19,12 @@ class LongTermPermit(models.Model):
     variation_of_conditions = models.TextField()
     authorized_officer = models.CharField(max_length=100)
     permit_number = models.CharField(max_length=20, unique=True, blank=True)
+    APPROVAL_CHOICES = [
+        ('P', 'Pending'),
+        ('A', 'Approved'),
+        ('R', 'Rejected'),
+    ]
+    approval_status = models.CharField(max_length=1, choices=APPROVAL_CHOICES, default='P')
 
     # Override the save method to generate the permit number
     def save(self, *args, **kwargs):
