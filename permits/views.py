@@ -25,6 +25,9 @@ class LongTermWorkPermitApprovalView(generics.RetrieveUpdateAPIView):
     lookup_field = 'permit_number'
     lookup_url_kwarg = 'permit_number'
 
+"""
+Compute Years Of Residence
+"""
 class YearsOfResidenceView(generics.RetrieveAPIView):
     serializer_class = LongTermPermitSerializer
     lookup_field = 'passport_number'
