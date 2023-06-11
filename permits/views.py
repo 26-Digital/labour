@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
-from datetime import datetime
+from datetime import datetime, date
 from .models import LongTermPermit
 from .serializers import LongTermPermitSerializer, LongTermWorkPermitApprovalSerializer
 from rest_framework.response import Response
@@ -49,10 +49,16 @@ class YearsOfResidenceView(generics.RetrieveAPIView):
     
     def calculate_years_of_residence(self, queryset):
         total_years = 0
-        
+        current_date = date.today()
         for permit in queryset:
             date_from = datetime.strptime(permit.date_from.strftime("%Y-%m-%d"), "%Y-%m-%d").date()
             date_to = datetime.strptime(permit.date_to.strftime("%Y-%m-%d"), "%Y-%m-%d").date()
+
+            if date_from > current_date:
+                continue
+            if date_to > current_date:
+                date_to = current_date
+                
             years_of_permit = (date_to - date_from).days/365
             total_years += years_of_permit
         return total_years
