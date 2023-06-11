@@ -4,7 +4,7 @@ from .models import LongTermPermit
 from .serializers import LongTermPermitSerializer, LongTermWorkPermitApprovalSerializer
 
 """
-Long Term permit application, handled by the applicant/CSR
+Long Term permit application,
 """
 class LongTermPermitListCreateView(generics.ListCreateAPIView):
     queryset = LongTermPermit.objects.all()
