@@ -26,6 +26,8 @@ class OmangRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
 def success_view(request):
     return render(request, 'success.html')
+def home(request):
+    return render(request, 'home.html')
 
 class OmangCreateView(View):
     template_name = 'omang_create.html' # Create an HTML template for the form

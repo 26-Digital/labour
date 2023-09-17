@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+HOME_PAGE_REDIRECT_URL = '/'
 
 # Application definition
 
