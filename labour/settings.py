@@ -99,9 +99,9 @@ WSGI_APPLICATION = 'labour.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'labour',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'billing_software',
+        'USER': 'username',
+        'PASSWORD': 'username@2023',
         'HOST': 'localhost',
         'PORT': '3306',
     }
