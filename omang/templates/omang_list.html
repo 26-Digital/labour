@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Omang List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+</head>
+<body>
+    <h1>Omang List</h1>
+    <table class="table-auto border-collapse border border-slate-500 md:border-spacing-4">
+        <caption class="caption-bottom">
+            Table 3.1: Omang details.
+          </caption>
+        <thead>
+            <tr>
+                <th class="border border-slate-500">ID Number</th>
+                <th class="border border-slate-500">Surname</th>
+                <th class="border border-slate-500">Forenames</th>
+                <!-- Add more table headers for other fields -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for omang in omang_objects %}
+            <tr>
+                <td class="border border-slate-700">{{ omang.ID_Number }}</td>
+                <td class="border border-slate-700">{{ omang.surname }}</td>
+                <td class="border border-slate-700">{{ omang.forenames }}</td>
+                <!-- Add more table cells for other fields -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

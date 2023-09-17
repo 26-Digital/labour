@@ -28,6 +28,10 @@ def success_view(request):
     return render(request, 'success.html')
 def home(request):
     return render(request, 'home.html')
+def omang_list(request):
+    omang_objects = Omang.objects.all()
+    context = {'omang_objects': omang_objects}
+    return render(request, 'omang_list.html', context)
 
 class OmangCreateView(View):
     template_name = 'omang_create.html' # Create an HTML template for the form

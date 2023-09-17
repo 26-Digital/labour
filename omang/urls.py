@@ -8,4 +8,5 @@ urlpatterns = [
     path('omang/<str:ID_Number>/', OmangRetrieveUpdateDestroyView.as_view(), name='omang-retrieve-update-destroy'),
     path('success/',views.success_view, name="success_page"),
     path('', views.home, name='home'),
+    path('omang-list/', views.omang_list, name='omang_list'),
 ]

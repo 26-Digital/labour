@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-gmm@odi5wca5a7+5qzy_8o8cwez=zb7&4$c0px%64a6szb7djz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['services.26digitaldev.com']
+ALLOWED_HOSTS = [
+    'services.26digitaldev.com',
+    'localhost'
+    ]
 
 HOME_PAGE_REDIRECT_URL = '/'
 
@@ -96,6 +99,7 @@ WSGI_APPLICATION = 'labour.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -106,7 +110,18 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'labour',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
