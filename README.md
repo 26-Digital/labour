@@ -1,5 +1,7 @@
 # labour
 26Digitalbw Microservices DX API 
+# services
+Created Setswana Natural language processing tool REST API to service a NEXTJS website
 
 ## Troubleshooting links
 1. https://stackoverflow.com/questions/23439089/using-django-admin-on-windows-powershell
