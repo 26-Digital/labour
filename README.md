@@ -9,3 +9,23 @@ Created Setswana Natural language processing tool REST API to service a NEXTJS w
 
 ## Useful links
 1. https://tailwindcss.com/docs/aspect-ratio
+
+
+## Lerui-Compound-Natural Language Processing
+ @author: Bopaki Tebalo  
+ Chunks: 
+    'lerui' in a sentence. 
+    'letlhaodi' in a sentence. 
+    'lebadi' in a sentence.         
+    'leemedi' in a sentence.         
+    'leamanyi' in a sentence.         
+    'lesupi' in a sentence.         
+    'letlhalosi' in a sentence. 
+ Dikarolo tsa puo:     
+    leina(noun)     
+    leemedi(pronoun)     
+    lediri(verb)     
+    ditlhaodi(qualificatives):         
+    lesupi(demostrative) e.g  Go nole kgomo ele fela-'ele' ke lesupi(a mangwe ke bo 'e' 'eo') o othe a supa gore selo se go buiwang ka sone          
+    lebadi(enumerative)  e.g  Go nole kgomo ele nngwefela-'nngwe' ke lebadi         
+    letlhaodi(adjective) e.g Monna yo moleele o lobelo.

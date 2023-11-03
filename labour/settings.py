@@ -35,6 +35,7 @@ HOME_PAGE_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
+    'sesigo',
     'labour',
     'permits',
     'omang',

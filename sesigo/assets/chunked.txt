@@ -1,0 +1,24 @@
+(S
+  O/CC4
+  dirisa/VRB
+  (NN-T
+    dilo/NN
+    (lerui
+      tsa/L22_0
+      (lethalosi
+        kwa/L24
+        (NN-T
+          (NN-T tirong/NN (lerui ya/L12_1 gagwe/L35))
+          (leamanyi
+            tse/CC9
+            di/C10
+            (VRB
+              rekwang/VRB_ng
+              (lethalosi
+                kwa/L24
+                (NN-T
+                  mmolong/NN
+                  (thaodi
+                    (lethaodi o/CC4 motona/ADJ1)
+                    (lerui wa/L31_2 Palapye/NN))))))))))
+  ./.)

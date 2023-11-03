@@ -5,10 +5,11 @@ from .models import LongTermPermit
 from .serializers import LongTermPermitSerializer, LongTermWorkPermitApprovalSerializer
 from rest_framework.response import Response
 
-"""
-Long Term permit application,
-"""
+
 class LongTermPermitListCreateView(generics.ListCreateAPIView):
+    """
+    Long Term permit application,
+    """    
     queryset = LongTermPermit.objects.all()
     serializer_class = LongTermPermitSerializer
 
@@ -16,19 +17,21 @@ class LongTermPermitDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = LongTermPermit.objects.all()
     serializer_class = LongTermPermitSerializer
 
-"""
-Approval/Rejection, handled by the Intelligence services
-"""
+
 class LongTermWorkPermitApprovalView(generics.RetrieveUpdateAPIView):
+    """
+    Approval/Rejection, handled by the Intelligence services
+    """
     queryset = LongTermPermit.objects.all()
     serializer_class = LongTermWorkPermitApprovalSerializer
     lookup_field = 'permit_number'
     lookup_url_kwarg = 'permit_number'
 
-"""
-Compute Years Of Residence
-"""
+
 class YearsOfResidenceView(generics.RetrieveAPIView):
+    """
+    Compute Years Of Residence
+    """
     serializer_class = LongTermPermitSerializer
     lookup_field = 'passport_number'
     
@@ -63,10 +66,11 @@ class YearsOfResidenceView(generics.RetrieveAPIView):
             total_years += years_of_permit
         return total_years
 
-"""
-Get Pending Permits
-"""    
+  
 class PendingPermitsView(generics.ListAPIView):
+    """
+    Get Pending Permits
+    """  
     serializer_class = LongTermPermitSerializer
 
     def get_queryset(self):

@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('permits.urls')),
     path('', include('omang.urls')),
+    path('v1/', include('sesigo.urls')),
 ]
