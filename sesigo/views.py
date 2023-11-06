@@ -20,12 +20,10 @@ class SetswanaNltkView(APIView):
             dtp = Setswana_Nltk.Setswana_Nltk()
             # Process the text using your Setswana_Nltk class
             result = dtp.generator(nltk.sent_tokenize(text))
-            # Convert the result (which is a Python dictionary) to JSON
-            #json_response = json.dumps(result, ensure_ascii=False, indent=2)
-            #print(data)
-            # Return the JSON data as a response
-            print(result)
-            #json_res = serialize('json',[result,])
-            #return JsonResponse({"S":{"CC4":"O","VRB":"dirisa","NN-T":{"NN":"dilo","lerui":{"L22_0":"tsa","lethalosi":{"L24":"kwa","NN-T":{"NN-T":{"NN":"tirong","lerui":{"L12_1":"ya","L35":"gagwe","leamanyi":{"CC9":"tse","C10":"di","VRB":{"VRB_ng":"rekwang","lethalosi":{"L24":"kwa","NN-T":{"NN":"mmolong","thaodi":{"lethaodi":{"CC4":"o","ADJ1":"motona","lerui":{"L31_2":"wa","NN":"Palapye",".":"."}}}}}}}}}}}}}}}, content_type="application/json", status=status.HTTP_200_OK, safe=False)
+            
+            # TO CREATE A JSON OBJECT.
+            # json_object = json.loads(result)
+            # print(json_object["S"])
+        
             return JsonResponse(json.loads(result), content_type="application/json", status=status.HTTP_200_OK, safe=False)
         return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

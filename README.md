@@ -10,6 +10,8 @@ Created Setswana Natural language processing tool REST API to service a NEXTJS w
 ## Useful links
 1. https://tailwindcss.com/docs/aspect-ratio
 
+## JSON Serialization
+1. USE json.dumps() TO CONVERT DATA TO A STRING OF A JSON OBJECT AND json.loads() TO CREATE A JSON OBJECT.
 
 ## Lerui-Compound-Natural Language Processing
  @author: Bopaki Tebalo  

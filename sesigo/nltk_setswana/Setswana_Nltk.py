@@ -266,7 +266,8 @@ class Setswana_Nltk():
             f.writelines(str(tree))
         f.close()
         json_str = self.tuple_to_json(tree)
-        #json_str = json.dumps(json_str,ensure_ascii=False, indent=2, separators=(',',':'))
+
+        # TO CONVERT DATA TO A STRING OF A JSON OBJECT
         json_str = json.dumps(json_str, separators=(',',':'))
         return json_str
 
