@@ -123,7 +123,7 @@ class Setswana_Nltk():
         @output :: {'Monna':'NN','Lela':'VRB'}
         """
         dic = {}
-        file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'corpus_v3.txt')
+        file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'corpus_v3.txt')
         with open(file_path, "r+") as input_file:
             lines = input_file.readlines()
             for line in lines:
@@ -247,12 +247,12 @@ class Setswana_Nltk():
         """
         #print("Here:")
         #print(settings.BASE_DIR)
-        file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'regs3.txt')
+        file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
         text2 = open(file_path, "rb")
   
         chunkGram = text2.read().decode("utf8", "ignore")
         text2.close()
-        file_path1 = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'chunked.txt')
+        file_path1 = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'chunked.txt')
         f = open(file_path1, "w+")
         for sentence in tokens:
             tokenized = nltk.word_tokenize(sentence)
