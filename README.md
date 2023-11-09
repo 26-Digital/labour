@@ -1,5 +1,5 @@
 # Services
-26Digitalbw Microservices DX API 
+26Digitalbw services DX API 
 # services
 Created Setswana Natural language processing tool REST API to service a NEXTJS website
 
