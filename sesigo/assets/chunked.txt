@@ -20,5 +20,4 @@
                   mmolong/NN
                   (thaodi
                     (lethaodi o/CC4 motona/ADJ1)
-                    (lerui wa/L31_2 Palapye/NN))))))))))
-  ./.)
+                    (lerui wa/L31_2 Palapye/NN)))))))))))

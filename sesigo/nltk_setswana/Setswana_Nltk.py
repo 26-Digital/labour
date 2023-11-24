@@ -123,7 +123,8 @@ class Setswana_Nltk():
         @output :: {'Monna':'NN','Lela':'VRB'}
         """
         dic = {}
-        file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'corpus_v3.txt')
+        file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'corpus_v3.txt')
+        #file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'corpus_v3.txt')
         with open(file_path, "r+") as input_file:
             lines = input_file.readlines()
             for line in lines:
@@ -191,7 +192,7 @@ class Setswana_Nltk():
                 # update the list.
                 tagged.append(tuple([word, self.tagger(dic, word)]))
                 self.is_last_lerui = False
-        # print(tagged)
+        print(tagged)
         return tagged
 
     def lerui_cc_counter(self, counter, word, dic, tagged, is_last_lerui, next_word):
@@ -232,6 +233,7 @@ class Setswana_Nltk():
         return type: List of tuples.
         """
         file = open("assets\\untagged.txt", "a+")
+        #file = open("assets/untagged.txt", "a+")
         for tup in tagged:
             if(tup[1] == "XX"):
                 print(tup[0] + " "+tup[1])
@@ -247,22 +249,26 @@ class Setswana_Nltk():
         """
         #print("Here:")
         #print(settings.BASE_DIR)
-        file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
+        file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'regs3.txt')
+        #file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
         text2 = open(file_path, "rb")
   
         chunkGram = text2.read().decode("utf8", "ignore")
         text2.close()
-        file_path1 = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'chunked.txt')
+        file_path1 = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'chunked.txt')
+        #file_path1 = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'chunked.txt')
         f = open(file_path1, "w+")
+        print(tokens)
         for sentence in tokens:
             tokenized = nltk.word_tokenize(sentence)
             self.counter = 0
             self.is_last_lerui = False
             tagged = self.part_of_speech_tagger(tokenized)
-            # print(tagged)
+            print(tagged)
             chunkParser = nltk.RegexpParser(chunkGram)
      
             tree = chunkParser.parse(tagged)
+            print(tree)
             f.writelines(str(tree))
         f.close()
         json_str = self.tuple_to_json(tree)
@@ -276,6 +282,12 @@ class Setswana_Nltk():
         sanitized_data = input_data.replace('\n','')
         #print(sanitized_data)
         return sanitized_data
+    def tuple_to_json2(self, input_str):
+        op_str = str(input_str)
+        op_str = op_str.replace("(","{")
+        op_str = op_str.replace(")","}")
+        op_str = op_str.replace("/",":")
+        print(op_str)
     def tuple_to_json(self, input_structure):
         # Initialize a dictionary to hold the parsed structure
         parsed_structure = {}
@@ -288,7 +300,7 @@ class Setswana_Nltk():
         # Start parsing
         current_dict = parsed_structure  # The current dictionary
         stack = []  # A stack to keep track of nested dictionaries
-
+        self.tuple_to_json2(input_structure)
         for element in elements:
             while element.endswith(')'):
                 element = element[:-1]  # Remove the trailing ')'

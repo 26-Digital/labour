@@ -12,6 +12,7 @@ Created Setswana Natural language processing tool REST API to service a NEXTJS w
 
 ## JSON Serialization
 1. USE json.dumps() TO CONVERT DATA TO A STRING OF A JSON OBJECT AND json.loads() TO CREATE A JSON OBJECT.
+2. https://www.adamsmith.haus/python/answers/how-to-create-a-json-object-in-python
 
 ## Lerui-Compound-Natural Language Processing
  @author: Bopaki Tebalo  

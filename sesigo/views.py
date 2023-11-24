@@ -20,7 +20,7 @@ class SetswanaNltkView(APIView):
             dtp = Setswana_Nltk.Setswana_Nltk()
             # Process the text using your Setswana_Nltk class
             result = dtp.generator(nltk.sent_tokenize(text))
-            
+            #print(result)
             # TO CREATE A JSON OBJECT.
             # json_object = json.loads(result)
             # print(json_object["S"])
