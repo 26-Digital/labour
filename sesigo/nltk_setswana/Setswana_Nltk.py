@@ -123,8 +123,8 @@ class Setswana_Nltk():
         @output :: {'Monna':'NN','Lela':'VRB'}
         """
         dic = {}
-        file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'corpus_v3.txt')
-        #file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'corpus_v3.txt')
+        #file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'corpus_v3.txt')
+        file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'corpus_v3.txt')
         with open(file_path, "r+") as input_file:
             lines = input_file.readlines()
             for line in lines:
@@ -231,8 +231,8 @@ class Setswana_Nltk():
         return: untagged tuples(string,'XX').
         return type: List of tuples.
         """
-        file = open("assets\\untagged.txt", "a+")
-        #file = open("assets/untagged.txt", "a+")
+        #file = open("assets\\untagged.txt", "a+")
+        file = open("assets/untagged.txt", "a+")
         for tup in tagged:
             if(tup[1] == "XX"):
                 #print(tup[0] + " "+tup[1])
@@ -246,8 +246,8 @@ class Setswana_Nltk():
         return: chunk.
         return type: object.
         """
-        file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'regs3.txt')
-        #file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
+        #file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'regs3.txt')
+        file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
         text2 = open(file_path, "rb")
   
         chunkGram = text2.read().decode("utf8", "ignore")
