@@ -252,9 +252,9 @@ class Setswana_Nltk():
   
         chunkGram = text2.read().decode("utf8", "ignore")
         text2.close()
-        file_path1 = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'chunked.txt')
+        #file_path1 = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'chunked.txt')
         #file_path1 = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'chunked.txt')
-        f = open(file_path1, "w+")
+        #f = open(file_path1, "w+")
 
         for sentence in tokens:
             tokenized = nltk.word_tokenize(sentence)
@@ -266,7 +266,7 @@ class Setswana_Nltk():
      
             tree = chunkParser.parse(tagged)
             #print(tree)
-            f.writelines(str(tree))
+            #f.writelines(str(tree))
         f.close()
         json_str = self.tuple_to_json(tree)
 
