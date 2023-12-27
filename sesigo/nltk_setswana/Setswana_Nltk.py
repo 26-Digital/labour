@@ -192,7 +192,7 @@ class Setswana_Nltk():
                 # update the list.
                 tagged.append(tuple([word, self.tagger(dic, word)]))
                 self.is_last_lerui = False
-        print(tagged)
+        #print(tagged)
         return tagged
 
     def lerui_cc_counter(self, counter, word, dic, tagged, is_last_lerui, next_word):
@@ -258,13 +258,13 @@ class Setswana_Nltk():
         file_path1 = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'chunked.txt')
         #file_path1 = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'chunked.txt')
         f = open(file_path1, "w+")
-        print(tokens)
+        #print(tokens)
         for sentence in tokens:
             tokenized = nltk.word_tokenize(sentence)
             self.counter = 0
             self.is_last_lerui = False
             tagged = self.part_of_speech_tagger(tokenized)
-            print(tagged)
+            #print(tagged)
             chunkParser = nltk.RegexpParser(chunkGram)
      
             tree = chunkParser.parse(tagged)
@@ -287,10 +287,10 @@ class Setswana_Nltk():
         op_str = op_str.replace("(","{")
         op_str = op_str.replace(")","}")
         op_str = op_str.replace("/",":")
-        print(op_str)
-    def tuple_to_json(self, input_structure):
+        #print(op_str)
+    def tuple_to_json4(self, input_structure):
         # Initialize a dictionary to hold the parsed structure
-        parsed_structure = {}
+        parsed_structure = {} # Initialized as an empty dictionary
 
         # Split the input structure by spaces
         stringfy = str(input_structure)
@@ -300,23 +300,88 @@ class Setswana_Nltk():
         # Start parsing
         current_dict = parsed_structure  # The current dictionary
         stack = []  # A stack to keep track of nested dictionaries
-        self.tuple_to_json2(input_structure)
+    
         for element in elements:
             while element.endswith(')'):
-                element = element[:-1]  # Remove the trailing ')'
-
-            if '/' in element:
+                pass
+                #current_dict = stack.pop()
+                #element = element[:-1]  # Remove the trailing ')'
+            print(parsed_structure) 
+            print(element) 
+            #if element.endswith('))'):
+                #element = element[:-2]
+                #current_dict = stack[-2]
+                #print(current_dict)
+            if element.endswith('))'):
+                element = element[:-2]
+                if len(stack) > 1:
+                    stack.pop()
+                    current_dict = stack[-1]
+                elif stack:
+                    current_dict = stack[0]
+                key = element.strip('()')
+                current_dict[key] = {}
+                stack.append(current_dict[key])
+            elif element.endswith(')'):
+                element = element[:-1]
+                if len(stack) > 1:
+                    current_dict = stack[-2]
+                elif stack:
+                    current_dict = stack[0]
+            elif '/' in element:
                 value, key  = element.split('/')
                 current_dict[key] = value
-
+                print(current_dict)
             elif '(' in element:
                 key = element.strip('()')
                 current_dict[key] = {}
                 stack.append(current_dict)  # Push the current_dict onto the stack
                 current_dict = current_dict[key]  # Set the current_dict to the new nested dictionary
-
+            elif '))' in element:
+                #current_dict = stack.pop()
+                pass
+                #current_dict = stack[-1]
             elif ')' in element:
-                current_dict = stack.pop()  # Pop the previous dictionary from the stack
+                pass
+                #current_dict = stack.pop()  # Pop the previous dictionary from the stack
+        #print(parsed_structure)
+        return parsed_structure
+    def tuple_to_json(self, input_structure):
+        parsed_structure = {}
+        stringfy = str(input_structure)
+        sanitized = self.sanitize_input(stringfy)
+        elements = sanitized.split()
+
+        current_dict = parsed_structure
+        stack = [current_dict]
+
+        for element in elements:
+            if element.endswith('))'):
+                element = element[:-2]
+                if len(stack) > 1:
+                    stack.pop()
+                    current_dict = stack[-1]
+                elif stack:
+                    current_dict = stack[0]
+                key = element.strip('()')
+                current_dict[key] = {}
+                stack.append(current_dict[key])
+
+            elif element.endswith(')'):
+                element = element[:-1]
+                if len(stack) > 1:
+                    current_dict = stack[-2]
+                elif stack:
+                    current_dict = stack[0]
+
+            if '/' in element:
+                value, key  = element.split('/')
+                current_dict[key] = value
+
+            if '(' in element and not '/' in element:
+                key = element.strip('()')
+                current_dict[key] = {}
+                stack.append(current_dict[key])
 
         return parsed_structure
 

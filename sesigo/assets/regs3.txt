@@ -31,18 +31,18 @@ lethalosi: {<L25><NN-T>}
 lethalosi: {<L01><NN-T>}
 VRB: {<VRB_ng><lethalosi>}
 lerui: {<L12_5><lethalosi>}
-leamanyi: {<CC5><CC5><VRB>}
-          {<CC1><CC4><VRB>}
-          {<CC3><CC3><VRB>}
-          {<C15><C15><VRB>}
-          {<C12><C13><VRB>}
-          {<C11><C11><VRB>}
-          {<CC4><CC4><VRB>}
-          {<CC8><CC8><VRB>}
-          {<CC9><C10><VRB>}
+leamanyi: {<CC5><CC5><VRB_ng>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC3><CC3><VRB_ng>}
+          {<C15><C15><VRB_ng>}
+          {<C12><C13><VRB_ng>}
+          {<C11><C11><VRB_ng>}
+          {<CC4><CC4><VRB_ng>}
+          {<CC8><CC8><VRB_ng>}
+          {<CC9><C10><VRB_ng>}
           {<CC6><CC6><VRB|lethalosi>}
-          {<CC1><CC4><VRB>}
-          {<CC7><CC7><VRB>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC7><CC7><VRB_ng>}
 NN-T: {<NN><leamanyi|lethalosi|lerui|thaodi|thaodi>}
 NN-T: {<NN-T><leamanyi>}
      
@@ -75,18 +75,18 @@ lethalosi:  {<EE1>}
 lethalosi: {<L01><NN-T>}
 VRB: {<VRB_ng><lethalosi>}
 lerui: {<L12_4><lethalosi>}
-leamanyi: {<CC5><CC5><VRB>}
-          {<CC1><CC4><VRB>}
-          {<CC3><CC3><VRB>}
-          {<C15><C15><VRB>}
-          {<C12><C13><VRB>}
-          {<C11><C11><VRB>}
-          {<CC4><CC4><VRB>}
-          {<CC8><CC8><VRB>}
-          {<CC9><C10><VRB>}
+leamanyi: {<CC5><CC5><VRB_ng>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC3><CC3><VRB_ng>}
+          {<C15><C15><VRB_ng>}
+          {<C12><C13><VRB_ng>}
+          {<C11><C11><VRB_ng>}
+          {<CC4><CC4><VRB_ng>}
+          {<CC8><CC8><VRB_ng>}
+          {<CC9><C10><VRB_ng>}
           {<CC6><CC6><VRB|lethalosi>}
-          {<CC1><CC4><VRB>}
-          {<CC7><CC7><VRB>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC7><CC7><VRB_ng>}
 NN-T: {<NN><leamanyi|lethalosi|lerui|thaodi>}
 
           
@@ -118,18 +118,18 @@ lethalosi:  {<EE1>}
 lethalosi: {<L01><NN-T>}
 VRB: {<VRB_ng><lethalosi>}
 lerui: {<L12_3><lethalosi>}
-leamanyi: {<CC5><CC5><VRB>}
-          {<CC1><CC4><VRB>}
-          {<CC3><CC3><VRB>}
-          {<C15><C15><VRB>}
-          {<C12><C13><VRB>}
-          {<C11><C11><VRB>}
-          {<CC4><CC4><VRB>}
-          {<CC8><CC8><VRB>}
-          {<CC9><C10><VRB>}
+leamanyi: {<CC5><CC5><VRB_ng>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC3><CC3><VRB_ng>}
+          {<C15><C15><VRB_ng>}
+          {<C12><C13><VRB_ng>}
+          {<C11><C11><VRB_ng>}
+          {<CC4><CC4><VRB_ng>}
+          {<CC8><CC8><VRB_ng>}
+          {<CC9><C10><VRB_ng>}
           {<CC6><CC6><VRB|lethalosi>}
-          {<CC1><CC4><VRB>}
-          {<CC7><CC7><VRB>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC7><CC7><VRB_ng>}
 NN-T: {<NN><leamanyi|lethalosi|lerui|thaodi>}
 NN-T: {<NN-T><leamanyi>}
 
@@ -162,18 +162,18 @@ lethalosi:  {<EE1>}
 lethalosi: {<L01><NN-T>}
 VRB: {<VRB_ng><lethalosi>}
 lerui: {<L12_2><lethalosi>}
-leamanyi: {<CC5_1><CC5_1><VRB>}
-          {<CC1_1><CC4_1><VRB>}
-          {<CC3_1><CC3_1><VRB>}
-          {<C15_1><C15_1><VRB>}
-          {<C12_1><C13_1><VRB>}
-          {<C11_1><C11_1><VRB>}
-          {<CC4_1><CC4_1><VRB>}
-          {<CC8_1><CC8_1><VRB>}
-          {<CC9_1><C10_1><VRB>}
+leamanyi: {<CC5_1><CC5_1><VRB_ng>}
+          {<CC1_1><CC4_1><VRB_ng>}
+          {<CC3_1><CC3_1><VRB_ng>}
+          {<C15_1><C15_1><VRB_ng>}
+          {<C12_1><C13_1><VRB_ng>}
+          {<C11_1><C11_1><VRB_ng>}
+          {<CC4_1><CC4_1><VRB_ng>}
+          {<CC8_1><CC8_1><VRB_ng>}
+          {<CC9_1><C10_1><VRB_ng>}
           {<CC6_1><CC6_1><VRB|lethalosi>}
-          {<CC1_1><CC4_1><VRB>}
-          {<CC7_1><CC7_1><VRB>}
+          {<CC1_1><CC4_1><VRB_ng>}
+          {<CC7_1><CC7_1><VRB_ng>}
 NN-T: {<NN><leamanyi|lethalosi|lerui|thaodi>}
                 
 lerui:  {<L12_1|L31_1|L22_1|L29_1|CC7_1|L02_1|L32_1|L27_1|L44_1|CC3_1><L35|NN|NN-T|lethaodi||lethalosilerui|JJQ|PRON|lebadi|lesupi>}
@@ -205,18 +205,18 @@ lethalosi:  {<EE1>}
 lethalosi: {<L01><NN-T>}
 VRB: {<VRB_ng><lethalosi|NN-T>}
 lerui: {<L12_1><lethalosi>}
-leamanyi: {<CC5><CC5><VRB>}
-          {<CC1><CC4><VRB>}
-          {<CC3_1><CC3_1><VRB>}
-          {<C15><C15><VRB>}
-          {<C12><C13><VRB>}
-          {<C11><C11><VRB>}
-          {<CC4><CC4><VRB>}
-          {<CC8><CC8><VRB>}
-          {<CC9><C10><VRB>}
+leamanyi: {<CC5><CC5><VRB_ng>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC3_1><CC3_1><VRB_ng>}
+          {<C15><C15><VRB_ng>}
+          {<C12><C13><VRB_ng>}
+          {<C11><C11><VRB_ng>}
+          {<CC4><CC4><VRB_ng>}
+          {<CC8><CC8><VRB_ng>}
+          {<CC9><C10><VRB_ng>}
           {<CC6><CC6><VRB|lethalosi>}
-          {<CC1><CC4><VRB>}
-          {<CC7><CC7><VRB>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC7><CC7><VRB_ng>}
 NN-T: {<NN><leamanyi|lethalosi|lerui|thaodi>}
 NN-T: {<NN-T><leamanyi>}
 lethalosi:  {<EE1>}
@@ -258,18 +258,18 @@ lethalosi:  {<EE1>}
 lethalosi: {<L01><NN-T>}
 VRB: {<VRB_ng><lethalosi>}
 lerui: {<L12_0><lethalosi>}
-leamanyi: {<CC5><CC5><VRB>}
-          {<CC1><CC4><VRB>}
-          {<CC3><CC3><VRB>}
-          {<C15><C15><VRB>}
-          {<C12><C13><VRB>}
-          {<C11><C11><VRB>}
-          {<CC4><CC4><VRB>}
-          {<CC8><CC8><VRB>}
-          {<CC9><C10><VRB>}
+leamanyi: {<CC5><CC5><VRB_ng>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC3><CC3><VRB_ng>}
+          {<C15><C15><VRB_ng>}
+          {<C12><C13><VRB_ng>}
+          {<C11><C11><VRB_ng>}
+          {<CC4><CC4><VRB_ng>}
+          {<CC8><CC8><VRB_ng>}
+          {<CC9><C10><VRB_ng>}
           {<CC6><CC6><VRB|lethalosi>}
-          {<CC1><CC4><VRB>}
-          {<CC7><CC7><VRB>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC7><CC7><VRB_ng>}
 NN-T: {<NN><leamanyi|lethalosi|lerui|thaodi>}
 NN-T: {<NN-T><leamanyi>}
 lethalosi: {<L01><NN-T>}
@@ -313,18 +313,18 @@ VRB: {<VRB_ng><NN-T>}
 VRB: {<VRB><lethalosi>}
      
 leamanyi: {<CC5><CC5><NN-T>}
-leamanyi: {<CC5><CC5><VRB>}
-          {<CC1><CC4><VRB>}
-          {<CC3><CC3><VRB>}
-          {<C15><C15><VRB>}
-          {<C12><C13><VRB>}
-          {<C11><C11><VRB>}
-          {<CC4><CC4><VRB>}
-          {<CC8><CC8><VRB>}
-          {<CC9><C10><VRB>}
+leamanyi: {<CC5><CC5><VRB_ng>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC3><CC3><VRB_ng>}
+          {<C15><C15><VRB_ng>}
+          {<C12><C13><VRB_ng>}
+          {<C11><C11><VRB_ng>}
+          {<CC4><CC4><VRB_ng>}
+          {<CC8><CC8><VRB_ng>}
+          {<CC9><C10><VRB_ng>}
           {<CC6><CC6><VRB|lethalosi>}
-          {<CC1><CC4><VRB>}
-          {<CC7><CC7><VRB>}
+          {<CC1><CC4><VRB_ng>}
+          {<CC7><CC7><VRB_ng>}
 NN-T: {<NN|NN-T><leamanyi>}
 
 lethalosi: {<EE2>}

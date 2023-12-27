@@ -32,3 +32,54 @@ Created Setswana Natural language processing tool REST API to service a NEXTJS w
     lesupi(demostrative) e.g  Go nole kgomo ele fela-'ele' ke lesupi(a mangwe ke bo 'e' 'eo') o othe a supa gore selo se go buiwang ka sone          
     lebadi(enumerative)  e.g  Go nole kgomo ele nngwefela-'nngwe' ke lebadi         
     letlhaodi(adjective) e.g Monna yo moleele o lobelo.
+
+
+# Current issues
+1. We cant repeat keys on a dictionary, therefore some keys are omitted.
+   Example:
+   Input:
+      (S
+         (NN-T Monna/NN 
+            (leamanyi
+               yo/CC1 
+               o/CC4 
+               lemang/VRB_ng)
+            )
+         o/CC4
+         itse/VRB
+         botshelo/NN
+      ./.)
+
+   Output:
+      {
+         "S": {
+            "NN-T": {
+                  "NN": "Monna",
+                  "leamanyi": {
+                     "CC1": "yo",
+                     "CC4": "o",
+                     "VRB_ng": "lemang",
+                     "VRB": "itse",
+                     "NN": "botshelo",
+                     ".": "."
+                  }
+            }
+         }
+      }
+   Desired Output:
+      {
+         "S": {
+            "NN-T": {
+                  "NN": "Monna",
+                  "leamanyi": {
+                     "CC1": "yo",
+                     "CC4": "o",
+                     "VRB_ng": "lemang",
+                      }
+                }
+            "CC4": "o",
+            "VRB": "itse",
+            "NN": "botshelo",
+            ".": "."
+         }
+      }
