@@ -267,7 +267,7 @@ class Setswana_Nltk():
             tree = chunkParser.parse(tagged)
             #print(tree)
             #f.writelines(str(tree))
-        f.close()
+        #f.close()
         json_str = self.tuple_to_json(tree)
 
         # TO CONVERT DATA TO A STRING OF A JSON OBJECT
