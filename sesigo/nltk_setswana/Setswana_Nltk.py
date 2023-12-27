@@ -110,7 +110,7 @@ class Setswana_Nltk():
             if(count > 1 and len(substr) > 3):
                 rep = substr+substr
                 if(rep in word):
-                    print(substr+'-'+word)
+                    #print(substr+'-'+word)
                     # f.writelines(substr+'-'+word+ '\n') # write new lines
                     return substr
                 else:
@@ -192,7 +192,6 @@ class Setswana_Nltk():
                 # update the list.
                 tagged.append(tuple([word, self.tagger(dic, word)]))
                 self.is_last_lerui = False
-        #print(tagged)
         return tagged
 
     def lerui_cc_counter(self, counter, word, dic, tagged, is_last_lerui, next_word):
@@ -236,7 +235,7 @@ class Setswana_Nltk():
         #file = open("assets/untagged.txt", "a+")
         for tup in tagged:
             if(tup[1] == "XX"):
-                print(tup[0] + " "+tup[1])
+                #print(tup[0] + " "+tup[1])
                 file.writelines(tup[0] + "\n")
 
     def generator(self, tokens):
@@ -247,8 +246,6 @@ class Setswana_Nltk():
         return: chunk.
         return type: object.
         """
-        #print("Here:")
-        #print(settings.BASE_DIR)
         file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'regs3.txt')
         #file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
         text2 = open(file_path, "rb")
@@ -258,17 +255,17 @@ class Setswana_Nltk():
         file_path1 = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'chunked.txt')
         #file_path1 = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'chunked.txt')
         f = open(file_path1, "w+")
-        #print(tokens)
+
         for sentence in tokens:
             tokenized = nltk.word_tokenize(sentence)
             self.counter = 0
             self.is_last_lerui = False
             tagged = self.part_of_speech_tagger(tokenized)
-            #print(tagged)
+        
             chunkParser = nltk.RegexpParser(chunkGram)
      
             tree = chunkParser.parse(tagged)
-            print(tree)
+            #print(tree)
             f.writelines(str(tree))
         f.close()
         json_str = self.tuple_to_json(tree)
@@ -278,16 +275,9 @@ class Setswana_Nltk():
         return json_str
 
     def sanitize_input(self, input_data):
-        #print(input_data)
         sanitized_data = input_data.replace('\n','')
-        #print(sanitized_data)
         return sanitized_data
-    def tuple_to_json2(self, input_str):
-        op_str = str(input_str)
-        op_str = op_str.replace("(","{")
-        op_str = op_str.replace(")","}")
-        op_str = op_str.replace("/",":")
-        #print(op_str)
+
     def tuple_to_json4(self, input_structure):
         # Initialize a dictionary to hold the parsed structure
         parsed_structure = {} # Initialized as an empty dictionary
@@ -306,12 +296,6 @@ class Setswana_Nltk():
                 pass
                 #current_dict = stack.pop()
                 #element = element[:-1]  # Remove the trailing ')'
-            print(parsed_structure) 
-            print(element) 
-            #if element.endswith('))'):
-                #element = element[:-2]
-                #current_dict = stack[-2]
-                #print(current_dict)
             if element.endswith('))'):
                 element = element[:-2]
                 if len(stack) > 1:
@@ -331,7 +315,6 @@ class Setswana_Nltk():
             elif '/' in element:
                 value, key  = element.split('/')
                 current_dict[key] = value
-                print(current_dict)
             elif '(' in element:
                 key = element.strip('()')
                 current_dict[key] = {}
@@ -344,9 +327,8 @@ class Setswana_Nltk():
             elif ')' in element:
                 pass
                 #current_dict = stack.pop()  # Pop the previous dictionary from the stack
-        #print(parsed_structure)
         return parsed_structure
-    def tuple_to_json(self, input_structure):
+    def tuple_to_json1(self, input_structure):
         parsed_structure = {}
         stringfy = str(input_structure)
         sanitized = self.sanitize_input(stringfy)
@@ -367,12 +349,6 @@ class Setswana_Nltk():
                 current_dict[key] = {}
                 stack.append(current_dict[key])
 
-            elif element.endswith(')'):
-                element = element[:-1]
-                if len(stack) > 1:
-                    current_dict = stack[-2]
-                elif stack:
-                    current_dict = stack[0]
 
             if '/' in element:
                 value, key  = element.split('/')
@@ -384,7 +360,43 @@ class Setswana_Nltk():
                 stack.append(current_dict[key])
 
         return parsed_structure
+    def tuple_to_json(self, input_structure):
+        parsed_structure = {}
+        stringfy = str(input_structure)
+        sanitized = self.sanitize_input(stringfy)
+        elements = sanitized.split()
 
+        print(input_structure)
+
+        current_dict = parsed_structure
+        stack = [current_dict]
+        i=0
+        keys=[]
+        self.func(elements,current_dict,stack,i)
+        return parsed_structure
+    def func(self,element,current_dict,stack,i):
+        if len(element) ==i:
+            return 0
+        if '(' in element[i] and not '/' in element[i]:
+            key = element[i].strip('()')
+            current_dict[key] = {}
+            stack.append(current_dict[key])
+            i=i+1
+            return self.func(element,current_dict[key],stack,i)
+        
+        if '/' in element[i]:
+            value, key = element[i].split('/')
+            while key.endswith(')'):
+                key = key[:-1]
+            current_dict[key] = value
+            while element[i].endswith(')'):
+                element[i] = element[i][:-1]
+                stack.pop()
+                current_dict = stack[-1]
+            
+            i=i+1       
+            return self.func(element,current_dict,stack,i)
+        
     def display_chunks(self, tree, chunk):
         """
         Display to thescreen and Write the chunks to the text file.
