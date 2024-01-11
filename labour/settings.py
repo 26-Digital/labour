@@ -25,9 +25,18 @@ SECRET_KEY = 'django-insecure-gmm@odi5wca5a7+5qzy_8o8cwez=zb7&4$c0px%64a6szb7djz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CORS_ALLOW_CREDENTIALS = True
+
 ALLOWED_HOSTS = [
     'services.26digitaldev.com',
-    'localhost'
+    'http://localhost:3000', # Your React app's origin
+    'http://localhost:8000',
+    '192.168.0.100',
+    '192.168.0.102',
+    '192.168.0.103',
+    '192.168.0.105',
+    'localhost',
+    '*'
     ]
 
 HOME_PAGE_REDIRECT_URL = '/'
@@ -50,6 +59,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://192.168.0.103:8000',
+    'http://192.168.0.104:3000',
+]
+
 REST_FRAMEWORK = {
     #'DEFAULT_PERMISSION_CLASSES':[
     #    'rest_framework'
@@ -60,8 +76,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
     ],    
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+        'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.AllowAny',
     ],
 }
 
@@ -75,6 +92,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# settings.py
 
 ROOT_URLCONF = 'labour.urls'
 

@@ -61,9 +61,7 @@ class Setswana_Nltk():
                'di': 'ADJ9'}
         if(key == '.' or key == ','):
             return key
-        # print(key)
         elif(key.lower() in dic0):
-            # print(key)
             if(dic0[key.lower()] == 'ADJ'):
                 if(key[:2] in dic and len(key) > 2):
                     return dic[key.lower()[:2]]
@@ -77,7 +75,6 @@ class Setswana_Nltk():
             return dic0[key.lower()]
         # check if the vrb with ng exists in the corpus by removing the 'ng'.
         elif(key[:-2] in dic0 or key.lower()[:-2] in dic0):
-            # print(key.lower()[:-2])
             if(dic0[key.lower()[:-2]] == 'VRB'):
                 return 'VRB_ng'
             elif(dic0[key.lower()[:-2]] == 'NN'):
@@ -110,8 +107,6 @@ class Setswana_Nltk():
             if(count > 1 and len(substr) > 3):
                 rep = substr+substr
                 if(rep in word):
-                    #print(substr+'-'+word)
-                    # f.writelines(substr+'-'+word+ '\n') # write new lines
                     return substr
                 else:
                     return 'XX'
@@ -124,7 +119,12 @@ class Setswana_Nltk():
         """
         dic = {}
         #file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'corpus_v3.txt')
-        file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'corpus_v3.txt')
+        #file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'corpus_v3.txt')
+
+        if os.name == 'posix': # POSIX is used for Linux and macos
+            file_path = os.path.join(settings.BASE_DIR, 'sesigo', 'assets', 'corpus_v3.txt')
+        elif os.name == 'nt': # 'nt' is used for windows
+            file_path = os.path.join(settings.BASE_DIR, 'sesigo', 'assets', 'corpus_v3.txt')
         with open(file_path, "r+") as input_file:
             lines = input_file.readlines()
             for line in lines:
@@ -231,11 +231,12 @@ class Setswana_Nltk():
         return: untagged tuples(string,'XX').
         return type: List of tuples.
         """
-        #file = open("assets\\untagged.txt", "a+")
-        file = open("assets/untagged.txt", "a+")
+        if os.name == 'posix': # POSIX is used for Linux and macos
+            file = open("assets\\untagged.txt", "a+")
+        elif os.name == 'nt': # 'nt' is used for windows
+            file = open("assets/untagged.txt", "a+")
         for tup in tagged:
             if(tup[1] == "XX"):
-                #print(tup[0] + " "+tup[1])
                 file.writelines(tup[0] + "\n")
 
     def generator(self, tokens):
@@ -246,8 +247,10 @@ class Setswana_Nltk():
         return: chunk.
         return type: object.
         """
-        #file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'regs3.txt')
-        file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
+        if os.name == 'posix': # POSIX is used for Linux and macos
+            file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'regs3.txt')
+        elif os.name == 'nt': # 'nt' is used for windows
+            file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
         text2 = open(file_path, "rb")
   
         chunkGram = text2.read().decode("utf8", "ignore")
@@ -265,8 +268,6 @@ class Setswana_Nltk():
             chunkParser = nltk.RegexpParser(chunkGram)
      
             tree = chunkParser.parse(tagged)
-            #print(tree)
-            #f.writelines(str(tree))
         #f.close()
         json_str = self.tuple_to_json(tree)
 
@@ -365,8 +366,6 @@ class Setswana_Nltk():
         stringfy = str(input_structure)
         sanitized = self.sanitize_input(stringfy)
         elements = sanitized.split()
-
-        print(input_structure)
 
         current_dict = parsed_structure
         stack = [current_dict]
