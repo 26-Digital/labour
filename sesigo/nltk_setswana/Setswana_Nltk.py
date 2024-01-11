@@ -248,9 +248,9 @@ class Setswana_Nltk():
         return type: object.
         """
         if os.name == 'posix': # POSIX is used for Linux and macos
-            file_path = os.path.join(settings.BASE_DIR, 'sesigo\\assets', 'regs3.txt')
+            file_path = os.path.join(settings.BASE_DIR, 'sesigo','assets', 'regs3.txt')
         elif os.name == 'nt': # 'nt' is used for windows
-            file_path = os.path.join(settings.BASE_DIR, 'sesigo/assets', 'regs3.txt')
+            file_path = os.path.join(settings.BASE_DIR, 'sesigo','assets', 'regs3.txt')
         text2 = open(file_path, "rb")
   
         chunkGram = text2.read().decode("utf8", "ignore")
