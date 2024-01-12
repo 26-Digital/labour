@@ -387,6 +387,8 @@ class Setswana_Nltk():
             value, key = element[i].split('/')
             while key.endswith(')'):
                 key = key[:-1]
+            if key in current_dict:
+                key=key+"x"
             current_dict[key] = value
             while element[i].endswith(')'):
                 element[i] = element[i][:-1]

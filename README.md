@@ -9,6 +9,11 @@ Created Setswana Natural language processing tool REST API to service a NEXTJS w
 
 ## Useful links
 1. https://tailwindcss.com/docs/aspect-ratio
+2. http://tlhalefang.com/setswana/dithamalakwane.html
+3. http://batswana.co.za/diane.html
+4. https://tlhalefang.com/setswana/maele.html
+5. https://www.cambridge.org/za/files/1215/8918/6460/Study__Master_Gr12_Setswana_Karolo_5.pdf
+6. https://www.nalibali.org/system/tdf/media/nb_ed_196_setswana_2023_lr.pdf?file=1&type=node&id=10557
 
 ## JSON Serialization
 1. USE json.dumps() TO CONVERT DATA TO A STRING OF A JSON OBJECT AND json.loads() TO CREATE A JSON OBJECT.
@@ -16,6 +21,7 @@ Created Setswana Natural language processing tool REST API to service a NEXTJS w
 
 ## Lerui-Compound-Natural Language Processing
  @author: Bopaki Tebalo  
+ @author Dr Gabofetswe Malema
  Chunks: 
     'lerui' in a sentence. 
     'letlhaodi' in a sentence. 
@@ -35,51 +41,6 @@ Created Setswana Natural language processing tool REST API to service a NEXTJS w
 
 
 # Current issues
-1. We cant repeat keys on a dictionary, therefore some keys are omitted.
-   Example:
-   Input:
-      (S
-         (NN-T Monna/NN 
-            (leamanyi
-               yo/CC1 
-               o/CC4 
-               lemang/VRB_ng)
-            )
-         o/CC4
-         itse/VRB
-         botshelo/NN
-      ./.)
-
-   Output:
-      {
-         "S": {
-            "NN-T": {
-                  "NN": "Monna",
-                  "leamanyi": {
-                     "CC1": "yo",
-                     "CC4": "o",
-                     "VRB_ng": "lemang",
-                     "VRB": "itse",
-                     "NN": "botshelo",
-                     ".": "."
-                  }
-            }
-         }
-      }
-   Desired Output:
-      {
-         "S": {
-            "NN-T": {
-                  "NN": "Monna",
-                  "leamanyi": {
-                     "CC1": "yo",
-                     "CC4": "o",
-                     "VRB_ng": "lemang",
-                      }
-                }
-            "CC4": "o",
-            "VRB": "itse",
-            "NN": "botshelo",
-            ".": "."
-         }
-      }
+1. We cant repeat keys on a dictionary, therefore some keys are omitted.=Solved
+2. Cannot send paragraphs or more than 1 sentence.
+3. Dictionary key conflicts.=solved
