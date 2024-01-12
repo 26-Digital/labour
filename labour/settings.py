@@ -31,10 +31,7 @@ ALLOWED_HOSTS = [
     'services.26digitaldev.com',
     'http://localhost:3000', # Your React app's origin
     'http://localhost:8000',
-    '192.168.0.100',
-    '192.168.0.102',
-    '192.168.0.103',
-    '192.168.0.105',
+    'https://malema.vercel.app',
     'localhost',
     '*'
     ]
@@ -62,8 +59,8 @@ INSTALLED_APPS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:8000',
-    'http://192.168.0.103:8000',
-    'http://192.168.0.104:3000',
+    'https://malema.vercel.app',
+    'https://services.26digitaldev.com'
 ]
 
 REST_FRAMEWORK = {
